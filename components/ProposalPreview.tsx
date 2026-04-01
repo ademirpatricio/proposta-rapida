@@ -16,7 +16,7 @@ export default function ProposalPreview({ data }: Props) {
     : [];
 
   return (
-    <div className="print-area bg-white text-black p-10 rounded-2xl shadow-2xl h-full overflow-auto">
+    <div className="print-area bg-white text-black p-10 rounded-2xl">
 
       {/* HEADER */}
       <div className="flex justify-between items-start border-b pb-6">

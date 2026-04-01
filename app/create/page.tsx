@@ -14,6 +14,21 @@ export default function CreatePage() {
     yourName: "",
   });
 
+  // =========================
+  // FORMATADOR DE MOEDA
+  // =========================
+  function formatCurrency(value: string) {
+    const number = value.replace(/\D/g, "");
+
+    return new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(Number(number) / 100);
+  }
+
+  // =========================
+  // HANDLER PADRÃO
+  // =========================
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
@@ -23,88 +38,178 @@ export default function CreatePage() {
     });
   }
 
+  // =========================
+  // HANDLER DO PREÇO
+  // =========================
+  function handlePriceChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const formatted = formatCurrency(e.target.value);
+
+    setForm({
+      ...form,
+      price: formatted,
+    });
+  }
+
+  function handlePrint() {
+    window.print();
+  }
+
   return (
-    <div className="min-h-screen bg-zinc-950 text-white p-8">
-      <div className="max-w-5xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-b from-zinc-950 to-black text-white p-6">
+      <div className="max-w-6xl mx-auto">
 
-        <h1 className="text-3xl font-bold mb-6">
-          Criar proposta
-        </h1>
+        {/* HEADER 
+        <div className="flex justify-between items-center mb-10">
 
-        <div className="grid md:grid-cols-2 gap-8">
+            <h1 className="text-2xl font-semibold">
+                Criar proposta comercial
+            </h1>
+
+        </div>*/}
+
+        <div className="grid md:grid-cols-2 gap-10">
 
           {/* FORM */}
-          <div className="space-y-4">
+          <div className="space-y-6">
 
-            <input
-              name="clientName"
-              placeholder="Nome do cliente"
-              onChange={handleChange}
-              className="w-full p-3 rounded-lg bg-zinc-900 border border-zinc-800"
-            />
+            {/* BLOCO 1 */}
+            <div className="bg-zinc-900/60 backdrop-blur p-6 rounded-xl border border-zinc-800">
+              <h2 className="text-sm text-zinc-400 mb-4">
+                Informações básicas
+              </h2>
 
-            <input
-              name="projectName"
-              placeholder="Nome do projeto"
-              onChange={handleChange}
-              className="w-full p-3 rounded-lg bg-zinc-900 border border-zinc-800"
-            />
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="text-xs text-zinc-500 mb-1 block">
+                    Nome do cliente
+                  </label>
+                  <input
+                    name="clientName"
+                    placeholder="Ex: Empresa XPTO"
+                    onChange={handleChange}
+                    className="input"
+                    autoFocus
+                  />
+                </div>
 
-            <textarea
-              name="description"
-              placeholder="Descrição"
-              onChange={handleChange}
-              className="w-full p-3 rounded-lg bg-zinc-900 border border-zinc-800"
-            />
+                <div>
+                  <label className="text-xs text-zinc-500 mb-1 block">
+                    Nome do projeto
+                  </label>
+                  <input
+                    name="projectName"
+                    placeholder="Ex: Criação de site"
+                    onChange={handleChange}
+                    className="input"
+                  />
+                </div>
+              </div>
+            </div>
 
-            <textarea
-              name="services"
-              placeholder="Serviços (um por linha)"
-              onChange={handleChange}
-              className="w-full p-3 rounded-lg bg-zinc-900 border border-zinc-800"
-            />
+            {/* BLOCO 2 */}
+            <div className="bg-zinc-900/60 backdrop-blur p-6 rounded-xl border border-zinc-800">
+              <h2 className="text-sm text-zinc-400 mb-4">
+                Detalhes
+              </h2>
 
-            <input
-              name="price"
-              placeholder="Valor"
-              onChange={handleChange}
-              className="w-full p-3 rounded-lg bg-zinc-900 border border-zinc-800"
-            />
+              <div className="space-y-3">
+                <div>
+                  <label className="text-xs text-zinc-500 mb-1 block">
+                    Descrição do projeto
+                  </label>
+                  <textarea
+                    name="description"
+                    placeholder="Explique o objetivo do projeto..."
+                    onChange={handleChange}
+                    className="input"
+                  />
+                </div>
 
-            <input
-              name="deadline"
-              placeholder="Prazo"
-              onChange={handleChange}
-              className="w-full p-3 rounded-lg bg-zinc-900 border border-zinc-800"
-            />
+                <div>
+                  <label className="text-xs text-zinc-500 mb-1 block">
+                    Serviços
+                  </label>
+                  <textarea
+                    name="services"
+                    placeholder="Um serviço por linha"
+                    onChange={handleChange}
+                    className="input"
+                  />
+                </div>
+              </div>
+            </div>
 
-            <input
-              name="yourName"
-              placeholder="Seu nome / empresa"
-              onChange={handleChange}
-              className="w-full p-3 rounded-lg bg-zinc-900 border border-zinc-800"
-            />
-            
-            <div className="flex justify-end mb-4">
+            {/* BLOCO 3 */}
+            <div className="bg-zinc-900/60 backdrop-blur p-6 rounded-xl border border-zinc-800">
+              <h2 className="text-sm text-zinc-400 mb-4">
+                Valores
+              </h2>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="text-xs text-zinc-500 mb-1 block">
+                    Valor
+                  </label>
+                  <input
+                    name="price"
+                    placeholder="R$ 0,00"
+                    value={form.price}
+                    onChange={handlePriceChange}
+                    className="input"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs text-zinc-500 mb-1 block">
+                    Prazo
+                  </label>
+                  <input
+                    name="deadline"
+                    placeholder="Ex: 15 dias"
+                    onChange={handleChange}
+                    className="input"
+                  />
+                </div>
+              </div>
+
+              <div className="mt-3">
+                <label className="text-xs text-zinc-500 mb-1 block">
+                  Seu nome / empresa
+                </label>
+                <input
+                  name="yourName"
+                  placeholder="Ex: Malabares MKT"
+                  onChange={handleChange}
+                  className="input"
+                />
+              </div>
+
+              
+            </div>
+
+             <div className="flex flex-col">
                 <button
-                    onClick={handlePrint}
-                    className="bg-white text-black px-4 py-2 rounded-lg font-medium hover:opacity-90"
+                onClick={handlePrint}
+                className="bg-emerald-600 w-full px-4 py-6 rounded-lg font-medium hover:bg-emerald-500 transition"
                 >
-                    Baixar PDF
+                Baixar PDF
                 </button>
-            </div>  
+
+                <p className="text-xs text-zinc-500 mt-2 text-center">
+                    Dica: desative "Cabeçalhos e rodapés" na impressão
+                </p>
+            </div>
 
           </div>
 
-          {/* PREVIEW PLACEHOLDER */}
-          <ProposalPreview data={form} />
+          {/* PREVIEW */}
+          <div className="bg-white text-black p-8 rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.6)]">
+            <ProposalPreview data={form} />
+          </div>
 
         </div>
+
       </div>
     </div>
   );
-}
-
-function handlePrint() {
-  window.print();
 }

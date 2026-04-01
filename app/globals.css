@@ -25,21 +25,82 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* =========================
+   INPUTS (FORM PADRÃO)
+========================= */
+
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #09090b;
+  border: 1px solid #27272a;
+  font-size: 14px;
+  color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.input::placeholder {
+  color: #52525b;
+}
+
+.input:hover {
+  border-color: #3f3f46;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #10b981;
+  background: #0a0a0a;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+/* =========================
+   SCROLL (PREVIEW BONITO)
+========================= */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* =========================
+   PRINT (PDF LIMPO)
+========================= */
+
 @media print {
   body {
-    background: white;
+    background: white !important;
   }
 
-  button {
-    display: none;
+  /* REMOVE TUDO */
+  body > * {
+    display: none !important;
   }
 
-  input,
-  textarea {
-    display: none;
-  }
-
+  /* MOSTRA APENAS O PREVIEW */
   .print-area {
+    display: block !important;
+    position: static;
     width: 100%;
+    padding: 40px;
+  }
+
+  /* REMOVE ESTILO DE TELA */
+  .print-area {
+    box-shadow: none !important;
+    border-radius: 0 !important;
   }
 }
