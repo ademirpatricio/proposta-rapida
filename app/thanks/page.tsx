@@ -28,7 +28,8 @@ export default function ThanksPage() {
           {/* CTA PRINCIPAL */}
           <div className="mt-8">
             <a
-              href="https://lab.malabares.com.br/create-pro?token=pro123"
+              /*href="https://lab.malabares.com.br/create-pro?token=pro123"*/
+              href="https://propostarapida.malabares.com.br/create-pro?token=pro123"
               className="inline-block bg-emerald-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-emerald-500 transition"
             >
               Acessar versão PRO
