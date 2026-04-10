@@ -4,6 +4,17 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-100 to-slate-200 text-zinc-900 flex flex-col justify-between">
 
+      {/* TOP BAR PRO */}
+      <div className="w-full bg-emerald-600 text-white text-sm py-5 px-4 text-center">
+        <span>
+          ✨ Remova a marca do PDF com o Proposta Rápida PRO
+        </span>
+        {" "}
+        <Link href="/pro" className="underline font-medium ml-2">
+          Conhecer versão PRO
+        </Link>
+      </div>
+
       {/* HERO */}
       <section className="flex-1 flex items-center px-6 py-20">
         <div className="max-w-5xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
@@ -11,12 +22,21 @@ export default function Home() {
           {/* LEFT - COPY */}
           <div>
 
-            {/* LOGO */}
-            <div className="flex items-center gap-2 mb-6">
-              <span className="text-2xl">⚡</span>
-              <span className="text-lg font-semibold tracking-tight">
-                Proposta <span className="text-emerald-600">Rápida</span>
-              </span>
+            {/* LOGO + PRO LINK */}
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-2">
+                <span className="text-2xl">⚡</span>
+                <span className="text-lg font-semibold tracking-tight">
+                  Proposta <span className="text-emerald-600">Rápida</span>
+                </span>
+              </div>
+
+              <Link
+                href="/pro"
+                className="text-xs text-emerald-600 hover:underline"
+              >
+                Versão PRO
+              </Link>
             </div>
 
             <h1 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
@@ -58,6 +78,14 @@ export default function Home() {
                 </p>
               </div>
 
+              {/* PRO SUTIL */}
+              <div className="flex items-start gap-3">
+                <span className="mt-1">✨</span>
+                <p className="text-zinc-700 leading-relaxed">
+                  Remova a marca do PDF com a versão PRO
+                </p>
+              </div>
+
             </div>
 
             {/* CTA */}
@@ -72,6 +100,16 @@ export default function Home() {
               <p className="text-xs text-zinc-500 mt-4 text-center">
                 Sem cadastro. Sem complicação.
               </p>
+
+              {/* LINK PRO ABAIXO DO CTA */}
+              <div className="text-center mt-3">
+                <Link
+                  href="/pro"
+                  className="text-xs text-zinc-500 hover:text-zinc-700 underline"
+                >
+                  Quer remover a marca? Conheça o PRO
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -116,6 +154,11 @@ export default function Home() {
                 <span>R$ 2.500,00</span>
                 <span>15 dias</span>
               </div>
+
+              {/* MICRO PRO NO PREVIEW */}
+              <p className="text-[10px] text-zinc-400 mt-4 text-center">
+                Gerado com Proposta Rápida • Remova no PRO
+              </p>
 
             </div>
           </div>

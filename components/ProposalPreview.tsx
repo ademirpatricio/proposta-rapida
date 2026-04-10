@@ -8,9 +8,10 @@ type Props = {
     deadline: string;
     yourName: string;
   };
+  hideWatermark?: boolean;
 };
 
-export default function ProposalPreview({ data }: Props) {
+export default function ProposalPreview({ data, hideWatermark }: Props) {
   const servicesList = data.services
     ? data.services.split("\n")
     : [];
@@ -97,6 +98,14 @@ export default function ProposalPreview({ data }: Props) {
           {data.yourName || "Seu nome / empresa"}
         </p>
       </div>
+
+      {/* WATERMARK (FREE ONLY) */}
+      {!hideWatermark && (
+        <div className="mt-12 text-center text-[10px] text-zinc-400">
+          Gerado com ⚡ Proposta{" "}
+          <span className="text-emerald-600">Rápida</span> • Remova no PRO
+        </div>
+      )}
 
     </div>
   );

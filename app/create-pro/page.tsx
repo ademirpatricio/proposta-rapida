@@ -1,10 +1,49 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import ProposalPreview from "@/components/ProposalPreview";
-import Link from "next/link";
 
 export default function CreatePage() {
+  const searchParams = useSearchParams();
+  const token = searchParams.get("token");
+
+  // 🔐 PROTEÇÃO SIMPLES
+  if (token !== "pro123") {
+  return (
+    <div className="min-h-screen flex items-center justify-center text-center p-6 bg-slate-100">
+      <div>
+        <h1 className="text-xl font-bold mb-4">
+          Acesso restrito
+        </h1>
+
+        <p className="text-zinc-600 mb-4">
+          Essa página é exclusiva para usuários PRO.
+        </p>
+
+        <a
+          href="/pro"
+          className="inline-block bg-emerald-600 text-white px-6 py-3 rounded-xl mb-4"
+        >
+          Desbloquear acesso
+        </a>
+
+        {/* SUPORTE */}
+        <p className="text-sm text-zinc-500">
+          Caso esteja com dúvidas ou problemas para acessar a versão PRO,{" "}
+          <a
+            href="https://wa.me/5581997278234?text=Olá!%20Comprei%20o%20Proposta%20Rápida%20PRO%20e%20estou%20com%20dificuldade%20para%20acessar.%20Pode%20me%20ajudar?"
+            target="_blank"
+            className="underline text-emerald-600"
+          >
+            chama nosso suporte
+          </a>.
+        </p>
+      </div>
+    </div>
+  );
+}
+
   const [form, setForm] = useState({
     clientName: "",
     projectName: "",
@@ -49,18 +88,10 @@ export default function CreatePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-100 to-slate-200 text-zinc-900 flex flex-col justify-between">
 
-      {/* TOP BAR PRO */}
-      <div className="w-full bg-emerald-600 text-white text-sm py-2 px-4 text-center no-print">
-        ✨ Remova a marca do PDF com o PRO{" "}
-        <Link href="/pro" className="underline font-medium ml-2">
-          Ver versão PRO
-        </Link>
-      </div>
-
       <div className="p-6">
         <div className="max-w-6xl mx-auto">
 
-          {/* LOGO + PRO */}
+          {/* LOGO */}
           <div className="flex justify-center items-center gap-4 mb-8 no-print">
             <div className="flex items-center gap-2">
               <span className="text-xl">⚡</span>
@@ -68,13 +99,6 @@ export default function CreatePage() {
                 Proposta <span className="text-emerald-600">Rápida</span>
               </span>
             </div>
-
-            <Link
-              href="/pro"
-              className="text-xs text-emerald-600 hover:underline"
-            >
-              Versão PRO
-            </Link>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -212,21 +236,13 @@ export default function CreatePage() {
                 <p className="text-xs text-zinc-500 text-center mt-2">
                   Dica: desative "Cabeçalhos e rodapés" na impressão
                 </p>
-
-                {/* PRO CTA */}
-                <p className="text-xs text-center mt-3 text-zinc-500">
-                  Quer remover a marca do PDF?{" "}
-                  <Link href="/pro" className="underline text-emerald-600">
-                    Conheça o PRO
-                  </Link>
-                </p>
               </div>
 
             </div>
 
-            {/* PREVIEW */}
+            {/* PREVIEW (SEM MARCA) */}
             <div className="bg-white p-5 rounded-2xl border border-zinc-200 shadow-[0_20px_50px_rgba(0,0,0,0.08)]">
-              <ProposalPreview data={form} />
+              <ProposalPreview data={form} hideWatermark />
             </div>
 
           </div>
