@@ -4,6 +4,7 @@ import Script from "next/script"; // 👈 ADICIONA ISSO
 import "./globals.css";
 
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -80,6 +81,8 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {children}
+        <Analytics />
+        <SpeedInsights />
 
         {/* HOTJAR */}
         <Script id="hotjar" strategy="afterInteractive">
