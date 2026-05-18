@@ -237,7 +237,7 @@ export default function CreatePage() {
       <footer className="text-center text-sm text-zinc-500 py-6 border-t border-zinc-200 no-print">
         ©2026{" "}
         <a
-          href="https://malabaresmkt.com"
+          href="https://malabares.com.br"
           target="_blank"
           className="underline hover:text-zinc-900"
         >
