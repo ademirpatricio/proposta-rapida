@@ -17,23 +17,23 @@ function CreateProContent() {
             Acesso restrito
           </h1>
 
-          <p className="text-zinc-600 mb-4">
+          <p className="text-ink-secondary mb-4">
             Essa página é exclusiva para usuários PRO.
           </p>
 
           <a
             href="/pro"
-            className="inline-block bg-emerald-600 text-white px-6 py-3 rounded-xl mb-4"
+            className="inline-block bg-brand text-white px-6 py-3 rounded-card mb-4"
           >
             Desbloquear acesso
           </a>
 
-          <p className="text-sm text-zinc-500">
+          <p className="text-sm text-ink-muted">
             Caso esteja com dúvidas ou problemas para acessar a versão PRO,{" "}
             <a
               href="https://wa.me/5581997278234?text=Olá!%20Comprei%20o%20Proposta%20Rápida%20PRO%20e%20não%20estou%20conseguindo%20acessar."
               target="_blank"
-              className="underline text-emerald-600"
+              className="underline text-brand"
             >
               chama nosso suporte
             </a>.
@@ -85,7 +85,7 @@ function CreateProContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-100 to-slate-200 text-zinc-900 flex flex-col justify-between">
+    <div className="min-h-screen bg-gradient-to-b from-slate-100 to-slate-200 text-ink flex flex-col justify-between">
 
       <div className="p-6">
         <div className="max-w-6xl mx-auto">
@@ -95,7 +95,7 @@ function CreateProContent() {
             <div className="flex items-center gap-2">
               <span className="text-xl">⚡</span>
               <span className="font-semibold tracking-tight">
-                Proposta <span className="text-emerald-600">Rápida</span>
+                Proposta <span className="text-brand">Rápida</span>
               </span>
             </div>
           </div>
@@ -106,15 +106,15 @@ function CreateProContent() {
             <div className="space-y-4 no-print">
 
               {/* BLOCO 1 */}
-              <div className="bg-white p-4 rounded-xl border border-zinc-200 shadow-sm">
-                <h2 className="text-xs text-zinc-500 mb-3">
+              <div className="bg-white p-4 rounded-card border border-border shadow-sm">
+                <h2 className="text-xs text-ink-muted mb-3">
                   Informações básicas
                 </h2>
 
                 <div className="grid grid-cols-2 gap-3">
 
                   <div>
-                    <label className="text-xs text-zinc-500 mb-1 block">
+                    <label className="text-xs text-ink-muted mb-1 block">
                       Nome do cliente
                     </label>
                     <input
@@ -126,7 +126,7 @@ function CreateProContent() {
                   </div>
 
                   <div>
-                    <label className="text-xs text-zinc-500 mb-1 block">
+                    <label className="text-xs text-ink-muted mb-1 block">
                       Nome do projeto
                     </label>
                     <input
@@ -141,15 +141,15 @@ function CreateProContent() {
               </div>
 
               {/* BLOCO 2 */}
-              <div className="bg-white p-4 rounded-xl border border-zinc-200 shadow-sm">
-                <h2 className="text-xs text-zinc-500 mb-3">
+              <div className="bg-white p-4 rounded-card border border-border shadow-sm">
+                <h2 className="text-xs text-ink-muted mb-3">
                   Detalhes
                 </h2>
 
                 <div className="space-y-3">
 
                   <div>
-                    <label className="text-xs text-zinc-500 mb-1 block">
+                    <label className="text-xs text-ink-muted mb-1 block">
                       Descrição
                     </label>
                     <textarea
@@ -161,7 +161,7 @@ function CreateProContent() {
                   </div>
 
                   <div>
-                    <label className="text-xs text-zinc-500 mb-1 block">
+                    <label className="text-xs text-ink-muted mb-1 block">
                       Serviços
                     </label>
                     <textarea
@@ -176,15 +176,15 @@ function CreateProContent() {
               </div>
 
               {/* BLOCO 3 */}
-              <div className="bg-white p-4 rounded-xl border border-zinc-200 shadow-sm">
-                <h2 className="text-xs text-zinc-500 mb-3">
+              <div className="bg-white p-4 rounded-card border border-border shadow-sm">
+                <h2 className="text-xs text-ink-muted mb-3">
                   Valores
                 </h2>
 
                 <div className="grid grid-cols-2 gap-3">
 
                   <div>
-                    <label className="text-xs text-zinc-500 mb-1 block">
+                    <label className="text-xs text-ink-muted mb-1 block">
                       Valor
                     </label>
                     <input
@@ -197,7 +197,7 @@ function CreateProContent() {
                   </div>
 
                   <div>
-                    <label className="text-xs text-zinc-500 mb-1 block">
+                    <label className="text-xs text-ink-muted mb-1 block">
                       Prazo
                     </label>
                     <input
@@ -211,7 +211,7 @@ function CreateProContent() {
                 </div>
 
                 <div className="mt-3">
-                  <label className="text-xs text-zinc-500 mb-1 block">
+                  <label className="text-xs text-ink-muted mb-1 block">
                     Seu nome / empresa
                   </label>
                   <input
@@ -227,12 +227,12 @@ function CreateProContent() {
               <div className="no-print">
                 <button
                   onClick={handlePrint}
-                  className="bg-emerald-600 w-full px-4 py-4 rounded-xl font-semibold text-white hover:bg-emerald-500 transition"
+                  className="bg-brand w-full px-4 py-4 rounded-card font-semibold text-white hover:bg-brand-hover transition"
                 >
                   Baixar PDF
                 </button>
 
-                <p className="text-xs text-zinc-500 text-center mt-2">
+                <p className="text-xs text-ink-muted text-center mt-2">
                   Dica: desative "Cabeçalhos e rodapés" na impressão
                 </p>
               </div>
@@ -240,7 +240,7 @@ function CreateProContent() {
             </div>
 
             {/* PREVIEW */}
-            <div className="bg-white p-5 rounded-2xl border border-zinc-200 shadow-[0_20px_50px_rgba(0,0,0,0.08)]">
+            <div className="bg-white p-5 rounded-card-lg border border-border shadow-[0_20px_50px_rgba(0,0,0,0.08)]">
               <ProposalPreview data={form} hideWatermark />
             </div>
 
@@ -249,17 +249,17 @@ function CreateProContent() {
       </div>
 
       {/* FOOTER */}
-      <footer className="text-center text-sm text-zinc-500 py-6 border-t border-zinc-200 no-print">
+      <footer className="text-center text-sm text-ink-muted py-6 border-t border-border no-print">
         ©2026{" "}
         <a
           href="https://malabares.com.br"
           target="_blank"
-          className="underline hover:text-zinc-900"
+          className="underline hover:text-ink"
         >
           Malabares MKT
         </a>{" "}
         • Feito com muito{" "}
-        <span className="text-purple-500">❤</span> em Recife - PE
+        <span className="text-accent-2">❤</span> em Recife - PE
       </footer>
 
     </div>

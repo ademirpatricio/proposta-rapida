@@ -31,23 +31,32 @@ export default function EmailCapture() {
   }
 
   return (
-    <section className="w-full bg-white border-t border-zinc-200 py-16 px-6">
-      <div className="max-w-xl mx-auto text-center">
+    <section
+      className="w-full py-16 px-6 relative overflow-hidden"
+      style={{
+        backgroundImage: `url("/bg-email.jpg")`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="max-w-xl mx-auto text-center relative z-10">
 
-        <span className="text-2xl">📬</span>
+        <p className="text-brand-light text-xs font-semibold uppercase tracking-widest mb-3">
+          Para freelancers e agências
+        </p>
 
-        <h2 className="mt-3 text-2xl font-bold tracking-tight text-zinc-900">
+        <h2 className="text-2xl font-bold tracking-tight text-white">
           Dicas para fechar mais propostas
         </h2>
 
-        <p className="mt-2 text-zinc-500 text-sm leading-relaxed">
-          Receba conteúdo prático sobre como apresentar, precificar e fechar propostas comerciais. Sem spam.
+        <p className="mt-3 text-brand-light/70 text-sm leading-relaxed">
+          Conteúdo prático sobre como apresentar, precificar e fechar propostas. Direto ao ponto, sem spam.
         </p>
 
         {status === "success" ? (
-          <p className="mt-8 text-emerald-600 font-medium text-sm">
+          <div className="mt-8 inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white px-5 py-3 rounded-btn text-sm font-medium">
             ✅ Boa! Você está na lista.
-          </p>
+          </div>
         ) : (
           <form onSubmit={handleSubmit} className="mt-8 flex flex-col sm:flex-row gap-3">
             <input
@@ -56,12 +65,12 @@ export default function EmailCapture() {
               placeholder="seu@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 px-4 py-3 rounded-xl border border-zinc-200 text-sm outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+              className="flex-1 px-4 py-3 rounded-btn bg-white/10 border border-white/20 text-white text-sm placeholder-white/40 outline-none focus:ring-2 focus:ring-white/40 focus:border-transparent transition-all"
             />
             <button
               type="submit"
               disabled={status === "loading"}
-              className="bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold text-sm hover:bg-emerald-500 transition-all disabled:opacity-60 whitespace-nowrap"
+              className="bg-white text-brand-dark px-6 py-3 rounded-btn font-bold text-sm uppercase tracking-wide hover:bg-brand-bg transition-all disabled:opacity-60 whitespace-nowrap"
             >
               {status === "loading" ? "Enviando..." : "Quero receber"}
             </button>
@@ -69,12 +78,12 @@ export default function EmailCapture() {
         )}
 
         {status === "error" && (
-          <p className="mt-3 text-red-500 text-xs">
+          <p className="mt-3 text-red-300 text-xs">
             Algo deu errado. Tenta de novo em instantes.
           </p>
         )}
 
-        <p className="mt-4 text-xs text-zinc-400">
+        <p className="mt-4 text-xs text-white/30">
           Sem spam. Cancele quando quiser.
         </p>
 

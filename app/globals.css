@@ -1,14 +1,60 @@
 @import "tailwindcss";
 
 /* =========================
-   BASE (FORÇANDO LIGHT MODE)
+   DESIGN TOKENS
+   Proposta Rápida — v1.0
 ========================= */
 
-:root {
-  --background: #f1f5f9;
-  --foreground: #18181b;
+@theme {
+
+  /* --- Marca --- */
+  --color-brand:         #00714c;  /* verde principal */
+  --color-brand-hover:   #005a3d;  /* verde escurecido — hover */
+  --color-brand-bg:      #edfbd5;  /* verde claro — fundos */
+  --color-brand-light:   #d1fae5;  /* verde suave — glow, borda */
+  --color-brand-on-dark: #6ee7b7;  /* verde claro — uso em seções escuras */
+
+  /* --- Neutros --- */
+  --color-canvas:        #ffffff;  /* fundo branco puro */
+  --color-surface:       #f4f4f5;  /* zinc-100 — fundo da página */
+  --color-surface-2:     #fafafa;  /* zinc-50  — cards, itens de lista */
+  --color-dark:          #18181b;  /* zinc-900 — top bar, bloco de preço */
+  --color-dark-2:        #27272a;  /* zinc-800 — input escuro */
+
+  /* --- Texto --- */
+  --color-ink:           #242427;  /* quase preto — cor principal de texto */
+  --color-ink-secondary: #52525b;  /* zinc-600 — corpo */
+  --color-ink-muted:     #71717a;  /* zinc-500 — descrições */
+  --color-ink-subtle:    #a1a1aa;  /* zinc-400 — placeholders, labels */
+  --color-ink-faint:     #d4d4d8;  /* zinc-300 — marca d'água */
+
+  /* --- Bordas --- */
+  --color-border:        #e4e4e7;  /* zinc-200 — bordas padrão */
+  --color-border-subtle: #f4f4f5;  /* zinc-100 — divisores sutis */
+
+  /* --- Texto sobre brand --- */
+  --color-ink-on-brand:  #ffffff;  /* branco — texto em cima de bg-brand */
+
+  /* --- Acento --- */
+  --color-accent:        #fdca30;  /* amarelo — destaques, badges, highlights */
+  --color-accent-2:      #c084fc;  /* roxo — coração no footer */
+
+  /* --- Feedback --- */
+  --color-error:         #f87171;  /* red-400   — erro no form */
+  --color-success:       #34d399;  /* emerald-400 — sucesso */
+
+  /* --- Radius (nomes semânticos, sem conflito com Tailwind) --- */
+  --radius-btn:     0.5rem;   /* rounded-btn     — botões */
+  --radius-card:    0.75rem;  /* rounded-card    — cards principais */
+  --radius-card-lg: 1rem;     /* rounded-card-lg — ProposalPreview */
+  --radius-pill:    9999px;   /* rounded-pill    — badges */
+
+  /* --- Sombra --- */
+  --shadow-card: 0 8px 48px rgba(0,0,0,0.10);  /* shadow-card */
+
 }
 
+/* Runtime: fontes Geist injetadas via next/font */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -17,8 +63,13 @@
 }
 
 /* =========================
-   BODY
+   BASE
 ========================= */
+
+:root {
+  --background: #f4f4f5;
+  --foreground: #242427;
+}
 
 body {
   background: var(--background);
@@ -27,7 +78,7 @@ body {
 }
 
 /* =========================
-   INPUTS (LIGHT REAL)
+   INPUTS
 ========================= */
 
 .input {
@@ -41,7 +92,6 @@ body {
   transition: all 0.2s ease;
 }
 
-/* remove autofill dark */
 .input:-webkit-autofill,
 .input:-webkit-autofill:hover,
 .input:-webkit-autofill:focus {
@@ -59,8 +109,8 @@ body {
 
 .input:focus {
   outline: none;
-  border-color: #10b981;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+  border-color: #00714c;
+  box-shadow: 0 0 0 3px rgba(0, 113, 76, 0.15);
 }
 
 /* =========================
@@ -73,7 +123,7 @@ textarea.input {
 }
 
 /* =========================
-   SCROLL (LIGHT)
+   SCROLL
 ========================= */
 
 ::-webkit-scrollbar {
@@ -94,20 +144,19 @@ textarea.input {
 }
 
 /* =========================
-   PRINT (VERSÃO FINAL CORRETA)
+   PRINT
 ========================= */
+
 @media print {
 
   body {
     background: white !important;
   }
 
-  /* ESCONDE O FORM */
   .no-print {
     display: none !important;
   }
 
-  /* PREVIEW ocupa tudo */
   .print-area {
     width: 100%;
     padding: 40px;

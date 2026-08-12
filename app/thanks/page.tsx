@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function ThanksPage() {
   return (
-    <main className="min-h-screen bg-slate-100 text-zinc-900 flex flex-col justify-between">
+    <main className="min-h-screen bg-slate-100 text-ink flex flex-col justify-between">
 
       <section className="flex-1 flex items-center px-6 py-20">
         <div className="max-w-2xl mx-auto text-center">
@@ -11,7 +11,7 @@ export default function ThanksPage() {
           <div className="flex justify-center items-center gap-2 mb-6">
             <span className="text-xl">⚡</span>
             <span className="font-semibold tracking-tight">
-              Proposta <span className="text-emerald-600">Rápida</span>
+              Proposta <span className="text-brand">Rápida</span>
             </span>
           </div>
 
@@ -20,7 +20,7 @@ export default function ThanksPage() {
             🎉 Compra confirmada!
           </h1>
 
-          <p className="mt-4 text-zinc-600">
+          <p className="mt-4 text-ink-secondary">
             Obrigado por adquirir o <strong>Proposta Rápida PRO</strong>.
             Seu acesso já está liberado 👇
           </p>
@@ -28,25 +28,24 @@ export default function ThanksPage() {
           {/* CTA PRINCIPAL */}
           <div className="mt-8">
             <a
-              /*href="https://lab.malabares.com.br/create-pro?token=pro123"*/
               href="https://propostarapida.malabares.com.br/create-pro?token=pro123"
-              className="inline-block bg-emerald-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-emerald-500 transition"
+              className="inline-block bg-brand text-white px-8 py-4 rounded-card font-semibold text-lg hover:bg-brand-hover transition"
             >
               Acessar versão PRO
             </a>
           </div>
 
-          <p className="text-sm text-zinc-500 mt-3">
+          <p className="text-sm text-ink-muted mt-3">
             Salve esse link para usar sempre que precisar
           </p>
 
           {/* INSTRUÇÃO */}
-          <div className="mt-10 bg-white p-6 rounded-xl border border-zinc-200 text-left">
+          <div className="mt-10 bg-white p-6 rounded-card border border-border text-left">
             <h2 className="font-semibold mb-2">
               Como usar:
             </h2>
 
-            <ol className="text-sm text-zinc-600 space-y-2 list-decimal list-inside">
+            <ol className="text-sm text-ink-secondary space-y-2 list-decimal list-inside">
               <li>Acesse o link acima</li>
               <li>Preencha os dados da proposta</li>
               <li>Baixe o PDF sem marca</li>
@@ -55,21 +54,21 @@ export default function ThanksPage() {
 
           {/* SUPORTE */}
           <div className="mt-10">
-            <p className="text-sm text-zinc-600">
+            <p className="text-sm text-ink-secondary">
               Precisa de ajuda?
             </p>
 
             <a
               href="https://wa.me/5581997278234?text=Olá!%20Acabei%20de%20comprar%20o%20Proposta%20Rápida%20PRO%20e%20preciso%20de%20ajuda."
               target="_blank"
-              className="text-emerald-600 underline text-sm"
+              className="text-brand underline text-sm"
             >
               Falar com suporte no WhatsApp
             </a>
           </div>
 
           {/* MALABARES */}
-          <div className="mt-12 bg-emerald-600 text-white p-6 rounded-xl">
+          <div className="mt-12 bg-brand text-white p-6 rounded-card">
             <h2 className="font-semibold text-lg">
               Conheça a Malabares MKT
             </h2>
@@ -101,7 +100,7 @@ export default function ThanksPage() {
           <div className="mt-10">
             <Link
               href="/"
-              className="text-xs text-zinc-500 underline"
+              className="text-xs text-ink-subtle underline"
             >
               Voltar para o início
             </Link>
@@ -111,9 +110,9 @@ export default function ThanksPage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="text-center text-sm text-zinc-500 py-6 border-t border-zinc-200">
+      <footer className="text-center text-sm text-ink-muted py-6 border-t border-border">
         ©2026 Malabares MKT • Feito com muito{" "}
-        <span className="text-purple-500">❤</span> em Recife - PE
+        <span className="text-accent-2">❤</span> em Recife - PE
       </footer>
 
     </main>

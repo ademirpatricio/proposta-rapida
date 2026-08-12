@@ -47,10 +47,10 @@ export default function CreatePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-100 to-slate-200 text-zinc-900 flex flex-col justify-between">
+    <div className="min-h-screen bg-gradient-to-b from-slate-100 to-slate-200 text-ink flex flex-col justify-between">
 
       {/* TOP BAR PRO */}
-      <div className="w-full bg-emerald-600 text-white text-sm py-2 px-4 text-center no-print">
+      <div className="w-full bg-brand text-white text-sm py-2 px-4 text-center no-print">
         ✨ Remova a marca do PDF com o PRO{" "}
         <Link href="/pro" className="underline font-medium ml-2">
           Ver versão PRO
@@ -65,13 +65,13 @@ export default function CreatePage() {
             <div className="flex items-center gap-2">
               <span className="text-xl">⚡</span>
               <span className="font-semibold tracking-tight">
-                Proposta <span className="text-emerald-600">Rápida</span>
+                Proposta <span className="text-brand">Rápida</span>
               </span>
             </div>
 
             <Link
               href="/pro"
-              className="text-xs text-emerald-600 hover:underline"
+              className="text-xs text-brand hover:underline"
             >
               Versão PRO
             </Link>
@@ -83,15 +83,15 @@ export default function CreatePage() {
             <div className="space-y-4 no-print">
 
               {/* BLOCO 1 */}
-              <div className="bg-white p-4 rounded-xl border border-zinc-200 shadow-sm">
-                <h2 className="text-xs text-zinc-500 mb-3">
+              <div className="bg-white p-4 rounded-card border border-border shadow-sm">
+                <h2 className="text-xs text-ink-muted mb-3">
                   Informações básicas
                 </h2>
 
                 <div className="grid grid-cols-2 gap-3">
 
                   <div>
-                    <label className="text-xs text-zinc-500 mb-1 block">
+                    <label className="text-xs text-ink-muted mb-1 block">
                       Nome do cliente
                     </label>
                     <input
@@ -103,7 +103,7 @@ export default function CreatePage() {
                   </div>
 
                   <div>
-                    <label className="text-xs text-zinc-500 mb-1 block">
+                    <label className="text-xs text-ink-muted mb-1 block">
                       Nome do projeto
                     </label>
                     <input
@@ -118,15 +118,15 @@ export default function CreatePage() {
               </div>
 
               {/* BLOCO 2 */}
-              <div className="bg-white p-4 rounded-xl border border-zinc-200 shadow-sm">
-                <h2 className="text-xs text-zinc-500 mb-3">
+              <div className="bg-white p-4 rounded-card border border-border shadow-sm">
+                <h2 className="text-xs text-ink-muted mb-3">
                   Detalhes
                 </h2>
 
                 <div className="space-y-3">
 
                   <div>
-                    <label className="text-xs text-zinc-500 mb-1 block">
+                    <label className="text-xs text-ink-muted mb-1 block">
                       Descrição
                     </label>
                     <textarea
@@ -138,7 +138,7 @@ export default function CreatePage() {
                   </div>
 
                   <div>
-                    <label className="text-xs text-zinc-500 mb-1 block">
+                    <label className="text-xs text-ink-muted mb-1 block">
                       Serviços
                     </label>
                     <textarea
@@ -153,15 +153,15 @@ export default function CreatePage() {
               </div>
 
               {/* BLOCO 3 */}
-              <div className="bg-white p-4 rounded-xl border border-zinc-200 shadow-sm">
-                <h2 className="text-xs text-zinc-500 mb-3">
+              <div className="bg-white p-4 rounded-card border border-border shadow-sm">
+                <h2 className="text-xs text-ink-muted mb-3">
                   Valores
                 </h2>
 
                 <div className="grid grid-cols-2 gap-3">
 
                   <div>
-                    <label className="text-xs text-zinc-500 mb-1 block">
+                    <label className="text-xs text-ink-muted mb-1 block">
                       Valor
                     </label>
                     <input
@@ -174,7 +174,7 @@ export default function CreatePage() {
                   </div>
 
                   <div>
-                    <label className="text-xs text-zinc-500 mb-1 block">
+                    <label className="text-xs text-ink-muted mb-1 block">
                       Prazo
                     </label>
                     <input
@@ -188,7 +188,7 @@ export default function CreatePage() {
                 </div>
 
                 <div className="mt-3">
-                  <label className="text-xs text-zinc-500 mb-1 block">
+                  <label className="text-xs text-ink-muted mb-1 block">
                     Seu nome / empresa
                   </label>
                   <input
@@ -204,19 +204,19 @@ export default function CreatePage() {
               <div className="no-print">
                 <button
                   onClick={handlePrint}
-                  className="bg-emerald-600 w-full px-4 py-4 rounded-xl font-semibold text-white hover:bg-emerald-500 transition"
+                  className="bg-brand w-full px-4 py-4 rounded-card font-semibold text-white hover:bg-brand-hover transition"
                 >
                   Baixar PDF
                 </button>
 
-                <p className="text-xs text-zinc-500 text-center mt-2">
+                <p className="text-xs text-ink-muted text-center mt-2">
                   Dica: desative "Cabeçalhos e rodapés" na impressão
                 </p>
 
                 {/* PRO CTA */}
-                <p className="text-xs text-center mt-3 text-zinc-500">
+                <p className="text-xs text-center mt-3 text-ink-muted">
                   Quer remover a marca do PDF?{" "}
-                  <Link href="/pro" className="underline text-emerald-600">
+                  <Link href="/pro" className="underline text-brand">
                     Conheça o PRO
                   </Link>
                 </p>
@@ -225,7 +225,7 @@ export default function CreatePage() {
             </div>
 
             {/* PREVIEW */}
-            <div className="bg-white p-5 rounded-2xl border border-zinc-200 shadow-[0_20px_50px_rgba(0,0,0,0.08)]">
+            <div className="bg-white p-5 rounded-card-lg border border-border shadow-[0_20px_50px_rgba(0,0,0,0.08)]">
               <ProposalPreview data={form} />
             </div>
 
@@ -234,17 +234,17 @@ export default function CreatePage() {
       </div>
 
       {/* FOOTER */}
-      <footer className="text-center text-sm text-zinc-500 py-6 border-t border-zinc-200 no-print">
+      <footer className="text-center text-sm text-ink-muted py-6 border-t border-border no-print">
         ©2026{" "}
         <a
           href="https://malabares.com.br"
           target="_blank"
-          className="underline hover:text-zinc-900"
+          className="underline hover:text-ink"
         >
           Malabares MKT
         </a>{" "}
         • Feito com muito{" "}
-        <span className="text-purple-500">❤</span> em Recife - PE
+        <span className="text-accent-2">❤</span> em Recife - PE
       </footer>
 
     </div>

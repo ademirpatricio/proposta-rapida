@@ -17,7 +17,7 @@ export default function ProposalPreview({ data, hideWatermark }: Props) {
     : [];
 
   return (
-    <div className="print-area bg-white text-black p-10 rounded-2xl">
+    <div className="print-area bg-white text-black p-10 rounded-card-lg">
 
       {/* HEADER */}
       <div className="flex justify-between items-start border-b pb-6">
@@ -25,12 +25,12 @@ export default function ProposalPreview({ data, hideWatermark }: Props) {
           <h1 className="text-3xl font-bold">
             Proposta Comercial
           </h1>
-          <p className="text-sm text-zinc-500 mt-1">
+          <p className="text-sm text-ink-muted mt-1">
             {data.projectName || "Nome do projeto"}
           </p>
         </div>
 
-        <div className="text-right text-sm text-zinc-500">
+        <div className="text-right text-sm text-ink-muted">
           <p>Para:</p>
           <p className="font-medium text-black">
             {data.clientName || "Nome do cliente"}
@@ -43,7 +43,7 @@ export default function ProposalPreview({ data, hideWatermark }: Props) {
         <h2 className="text-lg font-semibold mb-2">
           Descrição do projeto
         </h2>
-        <p className="text-sm text-zinc-700 leading-relaxed">
+        <p className="text-sm text-ink-secondary leading-relaxed">
           {data.description || "Descreva aqui os detalhes do projeto..."}
         </p>
       </div>
@@ -59,13 +59,13 @@ export default function ProposalPreview({ data, hideWatermark }: Props) {
             servicesList.map((item, i) => (
               <li
                 key={i}
-                className="bg-zinc-100 p-3 rounded-lg text-sm"
+                className="bg-surface p-3 rounded-btn text-sm"
               >
                 {item}
               </li>
             ))
           ) : (
-            <li className="text-sm text-zinc-400">
+            <li className="text-sm text-ink-subtle">
               Adicione os serviços...
             </li>
           )}
@@ -73,9 +73,9 @@ export default function ProposalPreview({ data, hideWatermark }: Props) {
       </div>
 
       {/* VALOR */}
-      <div className="mt-10 p-6 bg-zinc-900 text-white rounded-xl flex justify-between items-center">
+      <div className="mt-10 p-6 bg-dark text-white rounded-card flex justify-between items-center">
         <div>
-          <p className="text-sm text-zinc-400">
+          <p className="text-sm text-ink-subtle">
             Investimento
           </p>
           <p className="text-2xl font-bold">
@@ -84,7 +84,7 @@ export default function ProposalPreview({ data, hideWatermark }: Props) {
         </div>
 
         <div className="text-right text-sm">
-          <p className="text-zinc-400">Prazo</p>
+          <p className="text-ink-subtle">Prazo</p>
           <p className="font-medium">
             {data.deadline || "—"}
           </p>
@@ -92,7 +92,7 @@ export default function ProposalPreview({ data, hideWatermark }: Props) {
       </div>
 
       {/* ASSINATURA */}
-      <div className="mt-12 text-sm text-zinc-600">
+      <div className="mt-12 text-sm text-ink-secondary">
         <p>Atenciosamente,</p>
         <p className="mt-2 font-semibold text-black">
           {data.yourName || "Seu nome / empresa"}
@@ -101,9 +101,9 @@ export default function ProposalPreview({ data, hideWatermark }: Props) {
 
       {/* WATERMARK (FREE ONLY) */}
       {!hideWatermark && (
-        <div className="mt-12 text-center text-[10px] text-zinc-400">
+        <div className="mt-12 text-center text-[10px] text-ink-subtle">
           Gerado com ⚡ Proposta{" "}
-          <span className="text-emerald-600">Rápida</span> • Remova no PRO
+          <span className="text-brand">Rápida</span> • Remova no PRO
         </div>
       )}
 
