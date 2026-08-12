@@ -1,4 +1,5 @@
 import Link from "next/link";
+import EmailCapture from "@/components/EmailCapture";
 
 export default function Home() {
   return (
@@ -165,6 +166,9 @@ export default function Home() {
 
         </div>
       </section>
+
+      {/* EMAIL CAPTURE */}
+      <EmailCapture />
 
       {/* FOOTER */}
       <footer className="text-center text-sm text-zinc-500 py-8 border-t border-zinc-200">
