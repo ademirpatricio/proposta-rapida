@@ -2,14 +2,22 @@
 
 /* =========================
    DESIGN TOKENS
-   Proposta Rápida — v1.0
+   Proposta Rápida — v1.1
+   Mudanças vs v1.0:
+   · + brand-deep    (era #0B1F17 hardcoded 5x na página PRO)
+   · + brand-dark    (classe já usada, nunca declarada)
+   · + ink-inverse   (texto sobre dark / brand-deep)
+   · + radius-field  (10px — o raio real do .input)
+   · body agora usa var(--font-sans), não Arial
 ========================= */
 
 @theme {
 
   /* --- Marca --- */
   --color-brand:         #00714c;  /* verde principal */
-  --color-brand-hover:   #005a3d;  /* verde escurecido — hover */
+  --color-brand-hover:   #005a3d;  /* verde escurecido — hover do primário */
+  --color-brand-dark:    #005a3d;  /* texto verde escuro sobre fundo claro */
+  --color-brand-deep:    #0b1f17;  /* verde quase preto — seções escuras */
   --color-brand-bg:      #edfbd5;  /* verde claro — fundos */
   --color-brand-light:   #d1fae5;  /* verde suave — glow, borda */
   --color-brand-on-dark: #6ee7b7;  /* verde claro — uso em seções escuras */
@@ -27,6 +35,7 @@
   --color-ink-muted:     #71717a;  /* zinc-500 — descrições */
   --color-ink-subtle:    #a1a1aa;  /* zinc-400 — placeholders, labels */
   --color-ink-faint:     #d4d4d8;  /* zinc-300 — marca d'água */
+  --color-ink-inverse:   #ffffff;  /* branco — sobre dark / brand-deep */
 
   /* --- Bordas --- */
   --color-border:        #e4e4e7;  /* zinc-200 — bordas padrão */
@@ -36,20 +45,23 @@
   --color-ink-on-brand:  #ffffff;  /* branco — texto em cima de bg-brand */
 
   /* --- Acento --- */
-  --color-accent:        #fdca30;  /* amarelo — destaques, badges, highlights */
+  --color-accent:        #fdca30;  /* amarelo — destaques, badges */
   --color-accent-2:      #c084fc;  /* roxo — coração no footer */
 
   /* --- Feedback --- */
   --color-error:         #f87171;  /* red-400   — erro no form */
+  --color-error-bg:      #fef2f2;  /* fundo do alerta de erro */
+  --color-error-border:  #fecaca;  /* borda do alerta de erro */
   --color-success:       #34d399;  /* emerald-400 — sucesso */
 
   /* --- Radius (nomes semânticos, sem conflito com Tailwind) --- */
-  --radius-btn:     0.5rem;   /* rounded-btn     — botões */
-  --radius-card:    0.75rem;  /* rounded-card    — cards principais */
-  --radius-card-lg: 1rem;     /* rounded-card-lg — ProposalPreview */
-  --radius-pill:    9999px;   /* rounded-pill    — badges */
+  --radius-field:   0.625rem;  /* rounded-field   — inputs (10px) */
+  --radius-btn:     0.5rem;    /* rounded-btn     — botões */
+  --radius-card:    0.75rem;   /* rounded-card    — cards principais */
+  --radius-card-lg: 1rem;      /* rounded-card-lg — documento, modal */
+  --radius-pill:    9999px;    /* rounded-pill    — badges */
 
-  /* --- Sombra --- */
+  /* --- Sombra (único nível de elevação do sistema) --- */
   --shadow-card: 0 8px 48px rgba(0,0,0,0.10);  /* shadow-card */
 
 }
@@ -74,22 +86,27 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* FIX: antes era `Arial, Helvetica, sans-serif`, o que sobrescrevia
+     a Geist carregada pelo next/font em app/layout.tsx. */
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
 /* =========================
    INPUTS
+   Mantido como classe utilitária porque já está espalhado
+   pelas telas. Todos os valores agora vêm dos tokens.
 ========================= */
 
 .input {
   width: 100%;
   padding: 12px 14px;
-  border-radius: 10px;
-  background: #ffffff !important;
-  border: 1px solid #e4e4e7;
+  border-radius: var(--radius-field);
+  background: var(--color-canvas) !important;
+  border: 1px solid var(--color-border);
+  font-family: inherit;
   font-size: 14px;
-  color: #18181b !important;
-  transition: all 0.2s ease;
+  color: var(--color-dark) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .input:-webkit-autofill,
@@ -100,17 +117,29 @@ body {
 }
 
 .input::placeholder {
-  color: #a1a1aa;
+  color: var(--color-ink-subtle);
 }
 
 .input:hover {
-  border-color: #d4d4d8;
+  border-color: var(--color-ink-faint);
 }
 
 .input:focus {
   outline: none;
-  border-color: #00714c;
+  border-color: var(--color-brand);
   box-shadow: 0 0 0 3px rgba(0, 113, 76, 0.15);
+}
+
+.input:disabled {
+  background: var(--color-surface) !important;
+  color: var(--color-ink-subtle) !important;
+  cursor: not-allowed;
+}
+
+/* Estado de erro — aplicar junto de .input */
+.input[aria-invalid="true"] {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.15);
 }
 
 /* =========================
@@ -131,16 +160,28 @@ textarea.input {
 }
 
 ::-webkit-scrollbar-track {
-  background: #e5e7eb;
+  background: var(--color-border);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d4d4d8;
-  border-radius: 999px;
+  background: var(--color-ink-faint);
+  border-radius: var(--radius-pill);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a1a1aa;
+  background: var(--color-ink-subtle);
+}
+
+/* =========================
+   ACESSIBILIDADE
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* =========================
