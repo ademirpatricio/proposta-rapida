@@ -2,32 +2,39 @@
 
 /* =========================
    DESIGN TOKENS
-   Proposta Rápida — v1.1
-   Mudanças vs v1.0:
-   · + brand-deep    (era #0B1F17 hardcoded 5x na página PRO)
-   · + brand-dark    (classe já usada, nunca declarada)
-   · + ink-inverse   (texto sobre dark / brand-deep)
-   · + radius-field  (10px — o raio real do .input)
-   · body agora usa var(--font-sans), não Arial
+   Proposta Rápida — v1.2
+   Mudanças vs v1.1:
+   · + brand-mint      (texto claro sobre fundo brand)
+   · + brand-on-dark-2 (texto secundário sobre brand)
+   · + surface-mint    (hover de pills/chips)
+   · + border-chip     (borda de pills)
+   · + border-brand    (borda de cards no FAQ)
+   · + page            (fundo geral da página)
+   · + radius-panel    (seções arredondadas)
+   · + radius-arch     (canto superior da foto hero)
 ========================= */
 
 @theme {
 
   /* --- Marca --- */
-  --color-brand:         #00714c;  /* verde principal */
-  --color-brand-hover:   #005a3d;  /* verde escurecido — hover do primário */
-  --color-brand-dark:    #005a3d;  /* texto verde escuro sobre fundo claro */
-  --color-brand-deep:    #0b1f17;  /* verde quase preto — seções escuras */
-  --color-brand-bg:      #edfbd5;  /* verde claro — fundos */
-  --color-brand-light:   #d1fae5;  /* verde suave — glow, borda */
-  --color-brand-on-dark: #6ee7b7;  /* verde claro — uso em seções escuras */
+  --color-brand:           #00714c;  /* verde principal */
+  --color-brand-hover:     #005a3d;  /* verde escurecido — hover do primário */
+  --color-brand-dark:      #005a3d;  /* texto verde escuro sobre fundo claro */
+  --color-brand-deep:      #0b1f17;  /* verde quase preto — seções escuras */
+  --color-brand-bg:        #edfbd5;  /* verde claro — fundos */
+  --color-brand-light:     #d1fae5;  /* verde suave — glow, borda */
+  --color-brand-on-dark:   #6ee7b7;  /* verde claro — uso em seções escuras */
+  --color-brand-mint:      #6ee7b7;  /* alias de on-dark — CTA final */
+  --color-brand-on-dark-2: #a7f3d0;  /* verde mais claro — texto secundário sobre brand */
 
   /* --- Neutros --- */
-  --color-canvas:        #ffffff;  /* fundo branco puro */
-  --color-surface:       #f4f4f5;  /* zinc-100 — fundo da página */
-  --color-surface-2:     #fafafa;  /* zinc-50  — cards, itens de lista */
-  --color-dark:          #18181b;  /* zinc-900 — top bar, bloco de preço */
-  --color-dark-2:        #27272a;  /* zinc-800 — input escuro */
+  --color-page:        #f9fafb;  /* fundo geral da página (gray-50) */
+  --color-canvas:      #ffffff;  /* fundo branco puro */
+  --color-surface:     #f4f4f5;  /* zinc-100 — fundo da página */
+  --color-surface-2:   #fafafa;  /* zinc-50  — cards, itens de lista */
+  --color-surface-mint:#f0fdf4;  /* green-50 — hover de chips */
+  --color-dark:        #18181b;  /* zinc-900 — top bar, bloco de preço */
+  --color-dark-2:      #27272a;  /* zinc-800 — input escuro */
 
   /* --- Texto --- */
   --color-ink:           #242427;  /* quase preto — cor principal de texto */
@@ -36,10 +43,13 @@
   --color-ink-subtle:    #a1a1aa;  /* zinc-400 — placeholders, labels */
   --color-ink-faint:     #d4d4d8;  /* zinc-300 — marca d'água */
   --color-ink-inverse:   #ffffff;  /* branco — sobre dark / brand-deep */
+  --color-ink-on-dark:   #d1fae5;  /* verde claro suave — corpo em seções escuras */
 
   /* --- Bordas --- */
   --color-border:        #e4e4e7;  /* zinc-200 — bordas padrão */
   --color-border-subtle: #f4f4f5;  /* zinc-100 — divisores sutis */
+  --color-border-chip:   #d1fae5;  /* green-100 — borda de pills/chips */
+  --color-border-brand:  #bbf7d0;  /* green-200 — borda de cards FAQ */
 
   /* --- Texto sobre brand --- */
   --color-ink-on-brand:  #ffffff;  /* branco — texto em cima de bg-brand */
@@ -59,6 +69,8 @@
   --radius-btn:     0.5rem;    /* rounded-btn     — botões */
   --radius-card:    0.75rem;   /* rounded-card    — cards principais */
   --radius-card-lg: 1rem;      /* rounded-card-lg — documento, modal */
+  --radius-panel:   1.5rem;    /* rounded-panel   — seções com borda arredondada */
+  --radius-arch:    1.25rem;   /* rounded-arch    — canto superior da foto hero */
   --radius-pill:    9999px;    /* rounded-pill    — badges */
 
   /* --- Sombra (único nível de elevação do sistema) --- */
@@ -140,6 +152,16 @@ body {
 .input[aria-invalid="true"] {
   border-color: var(--color-error);
   box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.15);
+}
+
+/* =========================
+   HIGHLIGHT DE TEXTO
+   Usado em títulos da pro/page.tsx — sublinhado com brand-light.
+========================= */
+
+.mark-brand {
+  background: linear-gradient(transparent 62%, var(--color-brand-light) 62%);
+  padding-inline: 0.05em;
 }
 
 /* =========================

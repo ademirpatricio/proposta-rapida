@@ -16,12 +16,7 @@ export default function Home() {
 
       {/* NAV */}
       <nav className="w-full px-6 py-5 max-w-5xl mx-auto flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span className="text-xl">⚡</span>
-          <span className="text-base font-bold tracking-tight">
-            Proposta <span className="text-brand">Rápida</span>
-          </span>
-        </div>
+        <img src="/logo-light.svg" alt="Proposta Rápida" className="h-8 w-auto" />
         <Link
           href="/pro"
           className="text-xs font-bold uppercase tracking-wide text-brand border-2 border-brand rounded-md px-4 py-2 hover:bg-brand hover:text-white transition-all"
