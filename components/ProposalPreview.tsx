@@ -101,7 +101,7 @@ export default function ProposalPreview({ data, hideWatermark }: Props) {
 
       {/* WATERMARK (FREE ONLY) */}
       {!hideWatermark && (
-        <div className="mt-12 text-center text-[10px] text-ink-subtle">
+        <div className="mt-12 text-center text-[12px] text-ink-subtle">
           Gerado com ⚡ Proposta{" "}
           <span className="text-brand">Rápida</span> • Remova no PRO
         </div>
